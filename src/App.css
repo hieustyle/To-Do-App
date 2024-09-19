@@ -1,0 +1,250 @@
+
+*{
+  margin: 0; /* Đặt margin cho tất cả các phần tử là 0 */
+  padding: 0; /* Đặt padding cho tất cả các phần tử là 0 */
+  box-sizing: border-box; /* Đảm bảo kích thước của phần tử bao gồm padding và border */
+}
+body, html {
+  height: 100%; /* Đặt chiều cao cho body và html là 100% */
+  display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  margin: 0; /* Đặt margin cho body là 0 */
+}
+
+.todo-container {
+  width: 400px; /* Đặt chiều rộng cho container todo */
+  padding: 20px; /* Đặt khoảng cách bên trong cho container */
+  background-color: #f5f5f5; /* Màu nền cho container */
+  border-radius: 8px; /* Bo tròn góc cho container */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Đổ bóng cho container */
+  text-align: center; /* Căn giữa nội dung bên trong container */
+}
+
+.title {
+  color: #ff5e5e; /* Màu chữ cho tiêu đề */
+  font-size: 2rem; /* Kích thước chữ cho tiêu đề */
+  margin-bottom: 20px; /* Khoảng cách dưới cho tiêu đề */
+}
+
+.input-section {
+  display: flex; /* Sử dụng flexbox cho phần nhập liệu */
+  justify-content: space-between; /* Căn giữa các phần tử trong input-section */
+  margin-bottom: 20px; /* Khoảng cách dưới cho input-section */
+}
+
+input {
+  width: 70%; /* Đặt chiều rộng cho input */
+  padding: 10px; /* Đặt khoảng cách bên trong cho input */
+  font-size: 1rem; /* Kích thước chữ cho input */
+}
+
+.create-btn {
+  padding: 10px; /* Đặt khoảng cách bên trong cho nút tạo */
+  background-color: #007bff; /* Màu nền cho nút tạo */
+  color: white; /* Màu chữ cho nút tạo */
+  border: none; /* Không có đường viền cho nút tạo */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+}
+
+.filter-buttons {
+  display: flex; /* Sử dụng flexbox cho phần nút lọc */
+  justify-content: space-around; /* Căn giữa các nút trong filter-buttons */
+  margin-bottom: 20px; /* Khoảng cách dưới cho filter-buttons */
+}
+
+.filter-buttons button {
+  padding: 10px; /* Đặt khoảng cách bên trong cho nút lọc */
+  border: 1px solid #ddd; /* Đường viền cho nút lọc */
+  background-color: #fff; /* Màu nền cho nút lọc */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+  width: 30%; /* Đặt chiều rộng cho nút lọc */
+}
+
+.todo-list {
+  list-style-type: none; /* Không hiển thị dấu đầu dòng cho danh sách todo */
+  padding: 0; /* Đặt padding cho danh sách todo là 0 */
+  text-align: left; /* Căn trái nội dung trong danh sách todo */
+}
+
+.todo-list li {
+  display: flex; /* Sử dụng flexbox cho từng phần tử trong danh sách todo */
+  justify-content: space-between; /* Căn giữa các phần tử trong todo */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  padding: 10px; /* Đặt khoảng cách bên trong cho từng todo */
+  border: 1px solid #ddd; /* Đường viền cho từng todo */
+  margin-bottom: 5px; /* Khoảng cách dưới cho từng todo */
+  background-color: #fff; /* Màu nền cho từng todo */
+}
+
+.todo-list li.todo-done span {
+  text-decoration: line-through; /* Gạch ngang cho tên todo đã hoàn thành */
+  color: #ccc; /* Màu chữ cho tên todo đã hoàn thành */
+}
+
+.edit-btn, .delete-btn {
+  background: none; /* Không có nền cho nút chỉnh sửa và xóa */
+  border: none; /* Không có đường viền cho nút chỉnh sửa và xóa */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+  margin-left: 10px; /* Khoảng cách bên trái cho nút chỉnh sửa và xóa */
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  color: #ff5e5e; /* Đổi màu chữ khi hover */
+}
+
+.edit-icon, .delete-icon {
+  width: 20px; /* Đặt chiều rộng cho biểu tượng chỉnh sửa và xóa */
+  height: 20px; /* Đặt chiều cao cho biểu tượng chỉnh sửa và xóa */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+  border-radius: 50%; /* Bo tròn cho biểu tượng */
+  color: #fff; /* Màu chữ cho biểu tượng */
+  border: none; /* Không có đường viền cho biểu tượng */
+  font-size: 10px; /* Kích thước chữ cho biểu tượng */
+  transition: all 0.3s; /* Hiệu ứng chuyển đổi cho biểu tượng */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho biểu tượng */
+}
+
+.dialog {
+  position: fixed; /* Đặt vị trí của hộp thoại là cố định */
+  top: 50%; /* Đặt vị trí từ trên xuống là 50% */
+  left: 50%; /* Đặt vị trí từ trái sang là 50% */
+  transform: translate(-50%, -50%); /* Căn giữa hộp thoại */
+  background: white; /* Màu nền cho hộp thoại */
+  padding: 20px; /* Đặt khoảng cách bên trong cho hộp thoại */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Đổ bóng cho hộp thoại */
+  z-index: 1000; /* Đặt z-index để hộp thoại nằm trên các phần tử khác */
+}
+
+.dialog h2 {
+  margin-top: 0; /* Đặt margin trên cho tiêu đề hộp thoại là 0 */
+}
+
+.dialog button {
+  margin: 5px; /* Khoảng cách cho các nút trong hộp thoại */
+}
+
+.dialog h2 {
+  color: #ff5e5e; /* Màu chữ cho tiêu đề hộp thoại */
+}
+
+.dialog button {
+  background-color: #007bff; /* Màu nền cho nút trong hộp thoại */
+  color: white; /* Màu chữ cho nút trong hộp thoại */
+  border: none; /* Không có đường viền cho nút trong hộp thoại */
+  padding: 10px 20px; /* Đặt khoảng cách bên trong cho nút trong hộp thoại */
+}
+
+.delete-icon {
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+  border-radius: 50%; /* Bo tròn cho biểu tượng xóa */
+  border: none; /* Không có đường viền cho biểu tượng xóa */
+  font-size: 10px; /* Kích thước chữ cho biểu tượng xóa */
+  transition: all 0.3s; /* Hiệu ứng chuyển đổi cho biểu tượng xóa */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho biểu tượng xóa */
+}
+
+.icon-section {
+  display: flex; /* Sử dụng flexbox cho phần biểu tượng */
+  justify-content: space-between; /* Căn giữa các biểu tượng */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+button {
+  margin: 5px; /* Khoảng cách cho tất cả các nút */
+}
+
+.filter-section {
+  max-width: 100%; /* Đặt chiều rộng tối đa cho phần lọc */
+  display: flex; /* Sử dụng flexbox cho phần lọc */
+  justify-content: center; /* Căn giữa các nút trong phần lọc */
+  margin: 20px 0; /* Khoảng cách trên và dưới cho phần lọc */
+}
+
+.filter-section button {
+  background-color: #f0f0f0; /* Màu nền cho nút lọc */
+  border: 1px solid #ccc; /* Đường viền cho nút lọc */
+  border-radius: 5px; /* Bo tròn góc cho nút lọc */
+  padding: 10px 15px; /* Đặt khoảng cách bên trong cho nút lọc */
+  margin: 0 5px; /* Khoảng cách giữa các nút lọc */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+  transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi cho nút lọc */
+}
+
+.filter-section button:hover {
+  background-color: #007bff; /* Màu nền khi hover */
+  color: white; /* Màu chữ khi hover */
+}
+
+.filter-section button.active {
+  background-color: #007bff; /* Màu nền cho nút đang chọn */
+  color: white; /* Màu chữ cho nút đang chọn */
+  border: 1px solid #0056b3; /* Đường viền cho nút đang chọn */
+}
+
+.update-btn {
+  background-color: #ff0000; /* Màu nền cho nút cập nhật */
+  color: white; /* Màu chữ cho nút cập nhật */
+  border: none; /* Không có đường viền cho nút cập nhật */
+  padding: 10px 20px; /* Đặt khoảng cách bên trong cho nút cập nhật */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+}
+
+.delete-btn {
+  background-color: #ff0000; /* Màu nền cho nút xóa */
+  color: white; /* Màu chữ cho nút xóa */
+  border: none; /* Không có đường viền cho nút xóa */
+  padding: 10px 20px; /* Đặt khoảng cách bên trong cho nút xóa */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+}
+
+.filter-section button {
+  margin: 0 5px; /* Khoảng cách giữa các nút lọc */
+  width: 100%; /* Đặt chiều rộng cho nút lọc */
+  max-width: 200px; /* Đặt chiều rộng tối đa cho nút lọc */
+  text-align: center; /* Căn giữa chữ trong nút lọc */
+  padding: 10px; /* Đặt khoảng cách bên trong cho nút lọc */
+  border-radius: 5px; /* Bo tròn góc cho nút lọc */
+  transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi cho nút lọc */
+  background-color: #fefefe; /* Màu nền cho nút lọc */
+  border: none; /* Không có đường viền cho nút lọc */
+}
+
+.filter-section button:hover {
+  background-color: #007bff; /* Màu nền khi hover */
+  color: white; /* Màu chữ khi hover */
+  border: none; /* Không có đường viền khi hover */
+}
+
+.input-section input {
+  width: 70%; /* Đặt chiều rộng cho input trong phần nhập liệu */
+  font-size: 1rem; /* Kích thước chữ cho input */
+  border: 1px solid #04caf6; /* Đường viền cho input */
+  border-radius: 5px; /* Bo tròn góc cho input */
+}
+
+.input-section input:hover {
+  border: 1px solid #007bff; /* Đổi màu viền khi hover */
+  outline: none; /* Không có outline khi hover */
+  box-shadow: 0 0 5px rgba(17, 151, 228, 0.5); /* Đổ bóng cho input khi hover */
+  transition: border 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển đổi cho viền và bóng */
+}
+
+.create-btn {
+  max-width: 100%; /* Đặt chiều rộng tối đa cho nút tạo */
+  height: auto; /* Đặt chiều cao tự động cho nút tạo */
+  background-color: #04caf6; /* Màu nền cho nút tạo */
+  color: white; /* Màu chữ cho nút tạo */
+  border: none; /* Không có đường viền cho nút tạo */
+  cursor: pointer; /* Hiển thị con trỏ khi hover */
+}
+
+.create-btn:hover {
+  background-color: #5aa6f7; /* Đổi màu nền khi hover */
+  border: none; /* Không có đường viền khi hover */
+}
+
+.create-btn {
+  height: 50px; /* Đặt chiều cao cho nút tạo */
+  width: 30%; /* Đặt chiều rộng cho nút tạo */
+}
