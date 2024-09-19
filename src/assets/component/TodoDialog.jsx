@@ -52,5 +52,4 @@ const TodoDialog = ({ isOpen, onClose, onCreate }) => {
   );
 };
 
-// Xuất đối tượng TodoDialog để có thể sử dụng ở các thành phần khác trong ứng dụng.
 export default TodoDialog;
